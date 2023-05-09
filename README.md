@@ -7,7 +7,7 @@ See also: https://github.com/pre-commit/pre-commit
 
 ## Scripts
 
-commit-msg-sentiment.py
+[commit-msg-sentiment.py](pre_commit_hooks/commit-msg-sentiment.py)
 : disallow negative sentiment in commit messages
 
 ## How to install
