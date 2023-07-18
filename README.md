@@ -21,6 +21,13 @@ Add this to your `.pre-commit-config.yaml`
     -   id: commit-msg-sentiment.py
 ```
 
+## How to test
+
+To run the test suite, cd to the tests folder, then run
+```bash
+python3 ./test_commit_messages.py
+```
+
 ## The Story
 
 I started thinking about this project a few years ago. I was collaborating with

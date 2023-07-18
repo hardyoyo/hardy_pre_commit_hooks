@@ -34,6 +34,7 @@ def test_negative_commit_messages():
 def test_poor_but_not_negative_commit_messages():
     messages = [
         "WIP",
+        "",
         "Please work",
         "Please work!",
         "Fixed stuff",
