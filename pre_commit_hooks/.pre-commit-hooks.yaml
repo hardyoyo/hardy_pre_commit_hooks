@@ -1,0 +1,10 @@
+-   id: commit-message-sentiment
+    name: commit-message-sentiment
+    description: 'check commit message sentiment, and reject commit if negative sentiment is detected'
+    entry: commit-message-sentiment
+    language: python
+    'types': [python]
+    args: ["-i"]
+    require_serial: false
+    additional_dependencies: [textblob, afinn]
+    minimum_pre_commit_version: '0'
