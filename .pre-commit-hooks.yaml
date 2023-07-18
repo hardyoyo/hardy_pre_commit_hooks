@@ -4,7 +4,6 @@
     entry: commit-msg-sentiment.py
     language: python
     'types': [python]
-    args: ["-i"]
     require_serial: false
     additional_dependencies: [textblob, afinn]
     minimum_pre_commit_version: '0'
