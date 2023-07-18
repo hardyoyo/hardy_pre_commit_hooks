@@ -7,5 +7,8 @@ setup(
     name='pre_commit_placeholder_package',
     version='0.0.0',
     install_requires=['textblob', 'afinn'],
+    packages=[
+        'pre_commit_hooks',
+    ],
     scripts=['pre_commit_hooks/commit-message-sentiment.py']
 )
