@@ -1,7 +1,7 @@
--   id: commit-message-sentiment
-    name: commit-message-sentiment
+-   id: commit-msg-sentiment.py
+    name: commit-msg-sentiment
     description: 'check commit message sentiment, and reject commit if negative sentiment is detected'
-    entry: commit-message-sentiment
+    entry: commit-msg-sentiment.py
     language: python
     'types': [python]
     args: ["-i"]

@@ -10,5 +10,5 @@ setup(
     packages=[
         'pre_commit_hooks',
     ],
-    scripts=['pre_commit_hooks/commit-message-sentiment.py']
+    scripts=['pre_commit_hooks/commit-msg-sentiment.py']
 )
