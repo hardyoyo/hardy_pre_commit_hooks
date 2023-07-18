@@ -1,4 +1,4 @@
--   id: commit-msg-sentiment.py
+-   id: commit-msg-sentiment
     name: check for negative sentiment in commit messages
     description: dissalows commits with negative sentiment.
     entry: commit-msg-sentiment.py
