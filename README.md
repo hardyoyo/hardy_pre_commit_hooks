@@ -5,7 +5,6 @@ written for me, mostly by me (with an assist from two AIs, ChatGPT and CodePilot
 
 See also: https://github.com/pre-commit/pre-commit
 
-
 ## Scripts
 
 [commit-msg-sentiment.py](pre_commit_hooks/commit-msg-sentiment.py)

@@ -2,7 +2,6 @@
     name: commit-msg-sentiment.py
     description: 'check commit message sentiment, and reject commit if negative sentiment is detected'
     entry: commit-msg-sentiment.py
-    args: [--allow-abort, --commit-msg-file]
     stages: [commit-msg]
     language: python
     'types': [python]
