@@ -34,6 +34,13 @@ And then ask pre-commit to install the commit-msg hook script to your repository
 pre-commit install --hook-type commit-msg
 ```
 
+## Known issue: pre-commit doesn't install a working commit-msg git hook script
+
+This is probably an issue with my configuration for pre-commit. Until I work out
+exactly what the issue is, here's the workaround: after running the install
+command above, you'll need to manually replace the `.git/hooks/commit-msg` script
+installed by pre-commit with the [commit-msg](commit-msg) script in this repository.
+
 ## How to test
 
 To run the test suite, cd to the tests folder, then run
