@@ -29,10 +29,10 @@ Add this to your `.pre-commit-config.yaml`
     -   id: commit-msg-sentiment.py
 ```
 
-And then ask pre-commit to install the script(s) to your repository:
+And then ask pre-commit to install the commit-msg hook script to your repository:
 
 ```
-pre-commit install
+pre-commit install --hook-type commit-msg
 ```
 
 ## How to test
