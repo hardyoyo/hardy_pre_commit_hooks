@@ -75,6 +75,7 @@ typical commit messages.
 **REJECT_MSG**
 You can customize the message that is used when rejecting a commit for negative
 sentiment. But, do try to be kind to yourself. That's the whole point of this.
+
 ## The Story
 
 I started thinking about this project a few years ago. I was collaborating with
@@ -84,7 +85,7 @@ colleague. Someone who I trusted and appreciated. And I had to see their reactio
 to my mouthy, ill-considered commit message. I just wasn't used to the idea of
 other people seeing my commit messages, even though, of course anyone can see
 them. I still remember the sinking feeling, and the shame. And I thought, you
-know, someone should make a pre-commit hook script to reject grumpy commit
+know, someone should make a git hook script to reject grumpy commit
 messages. That would save others (and, possibly me) from that same awful
 feeling, of disappointing a friend.
 
