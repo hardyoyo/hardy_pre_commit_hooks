@@ -6,4 +6,6 @@
     'types': [python]
     require_serial: false
     additional_dependencies: [textblob, afinn]
+    always_run: true
+    fail_fast: true
     minimum_pre_commit_version: '0'
