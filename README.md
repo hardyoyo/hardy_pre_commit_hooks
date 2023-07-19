@@ -15,9 +15,8 @@ See also: https://github.com/pre-commit/pre-commit
 
 [Pre-Commit](https://github.com/pre-commit/pre-commit) is a really nice
 framework, and it has lots of extra goodies you should definitely check out and
-use. But for the commit-msg-sentiment.py script, you'll need to do a bit more
-work to install the script so that it will run. Because it is actually a
-[commit-msg hook script](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).
+use. Pre-commit is capable of installing commit-msg-sentiment.py as a commit-msg Git
+Hook script, and has been configured to do so.
 
 ## How to install
 
@@ -25,22 +24,16 @@ Add this to your `.pre-commit-config.yaml`
 
 ```yaml
 -   repo: https://github.com/hardyoyo/hardy_pre_commit_hooks
-    rev: v1.2
+    rev: v1.3
     hooks:
     -   id: commit-msg-sentiment.py
 ```
 
-That will handle downloading and installing the commit-msg-sentinment.py hook
-script. But it's not a pre-commit hook script, and will never be called
-correctly if you call it as a pre-commit hook script.
+And then ask pre-commit to install the script(s) to your repository:
 
-You will need to manually copy the [commit-msg](commit-msg) shell script to your
-project's `.git/hooks` folder. This will correctly call the hook script for every
-commit, and evaluate your commit messages for negative sentiment.
-
-It's possible that Pre-commit has a post-install phase which I can use to
-automate the creation of the commit-msg hook script. If I figure that out, I
-will release a new version of this code.
+```
+pre-commit install
+```
 
 ## How to test
 
@@ -49,6 +42,33 @@ To run the test suite, cd to the tests folder, then run
 python3 ./test_commit_messages.py
 ```
 
+You can also test your own example commit messages whenever you wish with:
+
+```
+echo "this is a dumb commit message" | commit-msg-sentiment.py
+```
+
+This is useful when you are adjusting your configuration (see below).
+
+## Configuring
+
+There are a few environment variables you can set to affect how
+commit-msg-sentiment.py functions:
+
+**MIN_COMMIT_MSG_LENGTH** (defaults to 120)
+Minum number of characters at which we'll switch to using TextBlob instead of
+Affin for sentiment analysis. TextBlob doesn't handle short strings very well,
+Affin does better. You may need to adjust this number to suit your own commit
+message style.
+
+**SENTIMENT_THRESHOLD** (defaults to 0.01)
+Both Affin and TextBlob have a similar concept of a Sentiment Threshold. You can
+tinker with this number if you like, but 0.01 seems to be the sweet spot for
+typical commit messages.
+
+**REJECT_MSG**
+You can customize the message that is used when rejecting a commit for negative
+sentiment. But, do try to be kind to yourself. That's the whole point of this.
 ## The Story
 
 I started thinking about this project a few years ago. I was collaborating with
