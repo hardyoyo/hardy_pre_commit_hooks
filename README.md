@@ -62,7 +62,7 @@ There are a few environment variables you can set to affect how
 commit-msg-sentiment.py functions:
 
 **MIN_COMMIT_MSG_LENGTH** (defaults to 120)
-Minum number of characters at which we'll switch to using TextBlob instead of
+Mininum number of characters at which we'll switch to using TextBlob instead of
 Affin for sentiment analysis. TextBlob doesn't handle short strings very well,
 Affin does better. You may need to adjust this number to suit your own commit
 message style.
