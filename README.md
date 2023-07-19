@@ -1,14 +1,23 @@
 # Hardy Pre-Commit Hooks
 
-A collection of pre-commit hook scripts, written for me, mostly by me (with an
-assist from two AIs, ChatGPT and CodePilot).
+A collection of pre-commit hook scripts (OK, well, not quite, keep reading), 
+written for me, mostly by me (with an assist from two AIs, ChatGPT and CodePilot).
 
 See also: https://github.com/pre-commit/pre-commit
+
 
 ## Scripts
 
 [commit-msg-sentiment.py](pre_commit_hooks/commit-msg-sentiment.py)
 : disallow negative sentiment in commit messages
+
+### Yep, that's a commit-msg git hook script
+
+[Pre-Commit](https://github.com/pre-commit/pre-commit) is a really nice
+framework, and it has lots of extra goodies you should definitely check out and
+use. But for the commit-msg-sentiment.py script, you'll need to do a bit more
+work to install the script so that it will run. Because it is actually a
+[commit-msg hook script](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).
 
 ## How to install
 
@@ -20,6 +29,18 @@ Add this to your `.pre-commit-config.yaml`
     hooks:
     -   id: commit-msg-sentiment.py
 ```
+
+That will handle downloading and installing the commit-msg-sentinment.py hook
+script. But it's not a pre-commit hook script, and will never be called
+correctly if you call it as a pre-commit hook script.
+
+You will need to manually copy the [commit-msg](commit-msg) shell script to your
+project's `.git/hooks` folder. This will correctly call the hook script for every
+commit, and evaluate your commit messages for negative sentiment.
+
+It's possible that Pre-commit has a post-install phase which I can use to
+automate the creation of the commit-msg hook script. If I figure that out, I
+will release a new version of this code.
 
 ## How to test
 

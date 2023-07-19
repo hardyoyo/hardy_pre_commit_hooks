@@ -15,8 +15,8 @@ from afinn import Afinn
 
 ################################## SETUP ######################################
 
-# Set the minimum length of commit message to check
-DEFAULT_MIN_COMMIT_MSG_LENGTH = 15
+# Set the minimum length of commit message to check (should be about one line)
+DEFAULT_MIN_COMMIT_MSG_LENGTH = 80
 
 # Set default threshold for sentiment polarity
 DEFAULT_THRESHOLD = 0.01
