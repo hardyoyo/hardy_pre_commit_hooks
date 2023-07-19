@@ -33,7 +33,7 @@ python3 ./test_commit_messages.py
 I started thinking about this project a few years ago. I was collaborating with
 a new team, on an unfamiliar codebase. And I made a commit on my own personal
 branch, thinking I was fixing a bug **I** had introduced. I was wrong, it was my
-colleague. Someone who I trusted and appreciated. And I had to see her reaction
+colleague. Someone who I trusted and appreciated. And I had to see their reaction
 to my mouthy, ill-considered commit message. I just wasn't used to the idea of
 other people seeing my commit messages, even though, of course anyone can see
 them. I still remember the sinking feeling, and the shame. And I thought, you
@@ -49,9 +49,9 @@ offered lots of false-positives on short commit messages. I experimented a bit
 with various word-based approaches, then settled on Afinn as it uses a
 word-based approach, and has a similar threshold mechanism as TextBlob.
 
-Co-pilot gets a shout-out because during the final work of putting evertything 
+CodePilot gets a shout-out because during the final work of putting everything
 together, I relied on its syntax hints to finish up the script and the tests.
-Some of the neutral commit messages are suggestions from Co-pilot.
+Some of the neutral commit messages are suggestions from CodePilot.
 
 ## Contributing
 
