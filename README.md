@@ -1,7 +1,7 @@
 # Hardy Pre-Commit Hooks
 
 A collection of pre-commit hook scripts (OK, well, not quite, keep reading), 
-written for me, mostly by me (with an assist from two AIs, ChatGPT and CodePilot).
+written for me, mostly by me (with an assist from two AIs, ChatGPT and GitHub Copilot).
 
 See also: https://github.com/pre-commit/pre-commit
 
@@ -97,9 +97,9 @@ offered lots of false-positives on short commit messages. I experimented a bit
 with various word-based approaches, then settled on Afinn as it uses a
 word-based approach, and has a similar threshold mechanism as TextBlob.
 
-CodePilot gets a shout-out because during the final work of putting everything
+GitHub Copilot gets a shout-out because during the final work of putting everything
 together, I relied on its syntax hints to finish up the script and the tests.
-Some of the neutral commit messages are suggestions from CodePilot.
+Some of the neutral commit messages are suggestions from Copilot.
 
 ## Contributing
 
