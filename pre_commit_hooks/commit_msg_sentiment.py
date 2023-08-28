@@ -23,12 +23,12 @@ DEFAULT_THRESHOLD = 0.01
 
 # Set default reject message
 DEFAULT_REJECT_MSG = """
-Hmmm... That was a bit negative. Remember, other people will read this message. 
-Please try again with a more constructive tone. Here are some guidelines to 
+Hmmm... That was a bit negative. Remember, other people will read this message.
+Please try again with a more constructive tone. Here are some guidelines to
 keep in mind:\n
 - Be descriptive: Include a brief summary of what was changed in the commit.\n
 - Be concise: Keep the message short and to the point.\n
-- Be constructive: Use language that is respectful and constructive, even when 
+- Be constructive: Use language that is respectful and constructive, even when
   discussing challenges or issues.\n
 """
 
@@ -62,29 +62,33 @@ afinn = Afinn()
 
 ############################# BEGIN MAIN SCRIPT ################################
 
-# Get commit message from file or stdin
-if len(sys.argv) > 1:
-    commit_file = sys.argv[1]
-    with open(commit_file, "r") as f:
-        commit_msg = f.read().strip()
-else:
-    commit_msg = sys.stdin.read().strip()
+def main():
+    # Get commit message from file or stdin
+    if len(sys.argv) > 1:
+        commit_file = sys.argv[1]
+        with open(commit_file, "r") as f:
+            commit_msg = f.read().strip()
+    else:
+        commit_msg = sys.stdin.read().strip()
 
-# for short commit messages, use Afinn to get sentiment polarity score (uses a
-# modified threshold, to avoid false positives for short messages)
-if len(commit_msg) < min_commit_msg_length:
-    sentiment_score = afinn.score(commit_msg)
-    if sentiment_score < (threshold-1):
+    # for short commit messages, use Afinn to get sentiment polarity score (uses a
+    # modified threshold, to avoid false positives for short messages)
+    if len(commit_msg) < min_commit_msg_length:
+        sentiment_score = afinn.score(commit_msg)
+        if sentiment_score < (threshold-1):
+            reject_commit()
+        else:
+            accept_commit()
+
+    # for longer commit messages, use TextBlob to get sentiment polarity score
+    blob = TextBlob(commit_msg)
+    sentiment_score = blob.sentiment.polarity
+
+    # Reject commit if sentiment score is below threshold
+    if sentiment_score < threshold:
         reject_commit()
     else:
         accept_commit()
 
-# for longer commit messages, use TextBlob to get sentiment polarity score
-blob = TextBlob(commit_msg)
-sentiment_score = blob.sentiment.polarity
-
-# Reject commit if sentiment score is below threshold
-if sentiment_score < threshold:
-    reject_commit()
-else:
-    accept_commit()
+if __name__ == "__main__":
+    raise SystemExit(main())
