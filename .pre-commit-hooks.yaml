@@ -1,13 +1,10 @@
--   id: commit-msg-sentiment.py
-    name: commit-msg-sentiment.py
+-   id: commit-msg-sentiment
+    name: commit-msg-sentiment
     description: 'check commit message sentiment, and reject commit if negative sentiment is detected'
-    entry: commit-msg-sentiment.py
+    entry: commit-msg-sentiment
     stages: [commit-msg]
     language: python
-    'types': [python]
     require_serial: false
     additional_dependencies: [textblob, afinn]
-    always_run: true
-    pass_filenames: false
     fail_fast: true
     minimum_pre_commit_version: '3.2.0'

@@ -1,20 +1,20 @@
 # Hardy Pre-Commit Hooks
 
-A collection of pre-commit hook scripts (OK, well, not quite, keep reading), 
+A collection of pre-commit hook scripts (OK, well, not quite, keep reading),
 written for me, mostly by me (with an assist from two AIs, ChatGPT and GitHub Copilot).
 
 See also: https://github.com/pre-commit/pre-commit
 
 ## Scripts
 
-[commit-msg-sentiment.py](pre_commit_hooks/commit-msg-sentiment.py)
+[commit_msg_sentiment.py](pre_commit_hooks/commit_msg_sentiment.py)
 : disallow negative sentiment in commit messages
 
 ### Yep, that's a commit-msg git hook script
 
 [Pre-Commit](https://github.com/pre-commit/pre-commit) is a really nice
 framework, and it has lots of extra goodies you should definitely check out and
-use. Pre-commit is capable of installing commit-msg-sentiment.py as a commit-msg Git
+use. Pre-commit is capable of installing commit_msg_sentiment.py as a commit-msg Git
 Hook script, and has been configured to do so.
 
 ## How to install
@@ -25,7 +25,7 @@ Add this to your `.pre-commit-config.yaml`
 -   repo: https://github.com/hardyoyo/hardy_pre_commit_hooks
     rev: v1.3
     hooks:
-    -   id: commit-msg-sentiment.py
+    -   id: commit-msg-sentiment
 ```
 
 And then ask pre-commit to install the commit-msg hook script to your repository:
@@ -33,13 +33,6 @@ And then ask pre-commit to install the commit-msg hook script to your repository
 ```
 pre-commit install --hook-type commit-msg
 ```
-
-## Known issue: pre-commit doesn't install a working commit-msg git hook script
-
-This is probably an issue with my configuration for pre-commit. Until I work out
-exactly what the issue is, here's the workaround: after running the install
-command above, you'll need to manually replace the `.git/hooks/commit-msg` script
-installed by pre-commit with the [commit-msg](commit-msg) script in this repository.
 
 ## How to test
 
@@ -51,7 +44,7 @@ python3 ./test_commit_messages.py
 You can also test your own example commit messages whenever you wish with:
 
 ```
-echo "this is a dumb commit message" | commit-msg-sentiment.py
+echo "this is a dumb commit message" | ./commit_msg_sentiment.py
 ```
 
 This is useful when you are adjusting your configuration (see below).
@@ -59,7 +52,7 @@ This is useful when you are adjusting your configuration (see below).
 ## Configuring
 
 There are a few environment variables you can set to affect how
-commit-msg-sentiment.py functions:
+commit_msg_sentiment.py functions:
 
 **MIN_COMMIT_MSG_LENGTH** (defaults to 120)
 Mininum number of characters at which we'll switch to using TextBlob instead of
