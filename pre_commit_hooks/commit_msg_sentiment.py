@@ -58,8 +58,6 @@ def reject_commit():
 def accept_commit():
     sys.exit(0)
 
-afinn = Afinn()
-
 ############################# BEGIN MAIN SCRIPT ################################
 
 def main():
@@ -70,10 +68,10 @@ def main():
             commit_msg = f.read().strip()
     else:
         commit_msg = sys.stdin.read().strip()
-
     # for short commit messages, use Afinn to get sentiment polarity score (uses a
     # modified threshold, to avoid false positives for short messages)
     if len(commit_msg) < min_commit_msg_length:
+        afinn = Afinn()
         sentiment_score = afinn.score(commit_msg)
         if sentiment_score < (threshold-1):
             reject_commit()
