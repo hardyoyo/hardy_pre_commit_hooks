@@ -26,7 +26,7 @@ def test_negative_commit_messages():
     for message in messages:
         with open('test_message.txt', 'w') as f:
             f.write(message)
-        result = subprocess.run(['../pre_commit_hooks/commit-msg-sentiment.py', 
+        result = subprocess.run(['../pre_commit_hooks/commit_msg_sentiment.py',
                                  'test_message.txt'], capture_output=True)
         assert result.returncode == 1
         assert b'Hmmm... That was a bit negative.' in result.stdout
@@ -49,13 +49,12 @@ def test_poor_but_not_negative_commit_messages():
     for message in messages:
         with open('test_message.txt', 'w') as f:
             f.write(message)
-        result = subprocess.run(['../pre_commit_hooks/commit-msg-sentiment.py', 
+        result = subprocess.run(['../pre_commit_hooks/commit_msg_sentiment.py',
                                  'test_message.txt'], capture_output=True)
         assert result.returncode == 0
 
-        
+
 if __name__ == '__main__':
     test_negative_commit_messages()
     test_poor_but_not_negative_commit_messages()
     print("All tests passed!")
-
