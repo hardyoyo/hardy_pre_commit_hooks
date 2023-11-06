@@ -23,7 +23,7 @@ Add this to your `.pre-commit-config.yaml`
 
 ```yaml
 -   repo: https://github.com/hardyoyo/hardy_pre_commit_hooks
-    rev: v1.3
+    rev: v1.5
     hooks:
     -   id: commit-msg-sentiment
 ```
